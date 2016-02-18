@@ -1,0 +1,46 @@
+<h3>Buscamos por año</h3>
+
+
+<form action="/tienda/busqueda_year">
+	Año: <input type="text" name="year"/><br>
+	<input type="submit" value="Buscar"/>
+</form>
+
+<% if @discosEncontrados != nil %>
+	<table >
+		<tr>
+			<th>Year</th>
+			<th>Nombre</th>
+		</tr>
+		<% for disco in @discosEncontrados %>
+		<tr>
+			<td><%= disco.year %></td>
+			<td><%= disco.nombre %></td>
+		</tr>
+		<% end %>
+	</table>
+<% end %>
+
+
+<h3>Buscamos por artista</h3>
+
+
+<form action="/tienda/busqueda_artista">
+	Artista: <input type="text" name="artista"/><br>
+	<input type="submit" value="Buscar"/>
+</form>
+
+<% if @discosEncontrados != nil %>
+	<table >
+		<tr>
+			<th>Artista</th>
+			<th>Nombre</th>
+		</tr>
+		<% for disco in @discosEncontrados %>
+		<tr>
+			<td><%= disco.artista %></td>
+			<td><%= disco.nombre %></td>
+		</tr>
+		<% end %>
+	</table>
+<% end %>

@@ -1,0 +1,22 @@
+<h1>Modificación</h1>
+
+
+<%= form_tag({controller:"tienda",action:"update"},method:"get") do%>
+	<%= label_tag(:nombre, "Nombre:")%>
+	<%= text_field_tag(:nombre, @disco.nombre)%><br/>
+	<%= label_tag(:artista, "Artista")%>
+	<%= text_field_tag(:artista, @disco.artista)%><br/>
+	<%= label_tag(:year, "Year")%>
+	<%= text_field_tag(:year, @disco.year)%><br/>
+	<%=hidden_field_tag(:id, @disco.id)%>
+	
+	<%= submit_tag("Modificar")%>	
+	<%end%>
+
+<%if @disco  != nil  && @disco.errors.any? %>
+<ul>
+	<%@disco.errors.full_messages.each do |mensaje_error|%>
+		<li><%=mensaje_error%></li>
+	<%end%> 
+</ul>
+<%end%>

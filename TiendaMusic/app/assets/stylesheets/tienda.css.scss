@@ -1,0 +1,47 @@
+// Place all the styles related to the tienda controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+  background-color: #F6CEE3;
+ 
+ 
+}
+
+h1{
+  text-align: center;
+  margin: 0px auto;
+}
+
+form {
+  text-align: center;
+  margin: 0px auto;
+  
+}
+
+table,  td {
+  border: solid black 1px;
+  boder-collapse: collapse;
+  //background-color: white;
+  width: 500px;
+  height: 20px;
+  text-align: center;
+  margin: 0px auto;
+  
+
+
+
+}
+
+th{
+  background-color: pink;
+  border: solid black 1px;
+  boder-collapse: collapse;
+}
+
+tbody tr:nth-child(odd) {
+background-color: white;  // para columnas impares
+}
+tbody tr:nth-child(even) {
+background-color: #BDBDBD; // para las columnas pares
+}

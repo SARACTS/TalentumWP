@@ -1,0 +1,22 @@
+<h1>Modificación</h1>
+
+
+	<%= form_tag({controller:"libreria",action:"update"},method:"get") do%>
+		<%= label_tag(:genero, "Género:")%>
+		<%= text_field_tag(:genero, @libro.genero)%><br/>
+		<%= label_tag(:titulo, "Título:")%>
+		<%= text_field_tag(:titulo, @libro.titulo)%><br/>
+		<%= label_tag(:autor, "Autor:")%>
+		<%= text_field_tag(:autor, @libro.autor)%><br/>
+		<%=hidden_field_tag(:id, @libro.id)%>
+		
+		<%= submit_tag("Modificar")%>	
+		<%end%>
+	
+	<%if @libro  != nil  && @libro.errors.any? %>
+<ul>
+	<%@libro.errors.full_messages.each do |mensaje_error|%>
+		<li><%=mensaje_error%></li>
+	<%end%> 
+</ul>
+<%end%>

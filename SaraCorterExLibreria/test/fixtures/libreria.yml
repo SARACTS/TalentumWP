@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  genero: MyString
+  titulo: MyString
+  autor: MyString
+
+two:
+  genero: MyString
+  titulo: MyString
+  autor: MyString

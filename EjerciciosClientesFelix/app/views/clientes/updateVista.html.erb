@@ -1,0 +1,12 @@
+<h1>Actualizar cliente</h1><br>
+
+
+<form class="updateV" action="/clientes/update"> 
+	Modificacion del cliente <%=@cliente.id%> <input type="hidden" name= "id" value="<%=@cliente.id%>"/><br><br> <!-- El hidden evita que el usuario pueda modificar el id-->
+	Nombre<input type="text" name= "nombre" value="<%=@cliente.nombre%>"/><br>
+	Apellidos<input type="text" name= "apellidos" value="<%=@cliente.apellidos%>"/><br>
+	Edad<input type="number" name= "edad" value="<%=@cliente.edad%>"/><br>
+	Telefono<input type="tel" name= "telefono" value= "<%=@cliente.telefono%>"/><br>
+	<input type="submit" name= "enviar" value="Salvar cambios"/>
+</form>
+

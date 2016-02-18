@@ -1,0 +1,31 @@
+<h1>Alta de clientes</h1>
+<form action="/clientes/alta">
+	<input type="text" name= "nombre" placeholder="Introduzca su nombre" />
+	<input type="text" name= "apellidos" placeholder="Introduzca sus apellidos"/>
+	<input type="number" name= "edad" placeholder="Introduzca su edad"/>
+	<input type="tel" name= "telefono" placeholder="Introduzca su telefono"/>
+	<input type="submit" name= "enviar" value="alta"/>
+</form>
+
+<table>
+	<tr>
+		<th>Nombre</th>
+		<th>Apellidos</th>
+		<th>Edad</th>
+		<th>Detalle</th>
+	</tr>
+	
+	<% for cliente in @clientes %>
+	<tr>
+		<td><%=cliente.nombre%></td>
+		<td><%=cliente.apellidos%></td>
+		<td><%=cliente.edad%></td>
+		<td><a href="/clientes/detalle?id=<%=cliente.id%>">Detalles</a></td>
+		<td><a href="/clientes/delete?id=<%=cliente.id%>">Borrar</a></td>
+	
+
+	<% 	end %>
+
+	</tr>
+	
+</table>

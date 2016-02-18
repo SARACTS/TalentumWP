@@ -1,0 +1,66 @@
+<h1>Tienda de Música</h1>
+
+
+<%= form_tag({controller:"libreria",action:"alta"},method:"get") do%>
+	<%= label_tag(:nombre, "Nombre:")%>
+	<%= text_field_tag(:nombre)%><br/>
+	<%= label_tag(:artista, "Artista:")%>
+	<%= text_field_tag(:artista)%><br/>
+	<%= label_tag(:year, "Año:")%>
+	<%= text_field_tag(:year)%><br/>
+	
+	<%= submit_tag("Crear")%>	
+	
+<%end%>
+
+
+
+
+
+<table>
+	<h2><tr>
+		<th>Checkeo</th>		
+		<th>Albúm/Single</th>
+		<th>Artista</th>
+		<th>Año</th>
+		<th>Borrar</th>
+		<th>Modificar</th>
+		<th>Busquedas</th>
+	</tr></h2>
+
+	<tbody>
+		
+<% for disco in @discos%>
+
+		<tr>
+			<td><input type="checkbox" name="checkbox" value="checkbox" />Checkeo</td>
+			<td><%=disco.nombre%></td>
+			<td><%=disco.artista%></td>
+			<td><%=disco.year%></td>
+			<td><a href="/tienda/delete?id=<%=disco.id%>">Borrar</a></td>
+			<td><a href="/tienda/update_vista?id=<%=disco.id%>">Modificar</a></td>
+			<td><a href="/tienda/busquedas">Busquedas</a></td>
+		</tr>
+	
+<% end %>
+	</tbody>
+</table>
+
+
+<%if @disco  != nil  && @disco.errors.any? %>
+<ul>
+	<%@disco.errors.full_messages.each do |mensaje_error|%>
+		<li><%=mensaje_error%></li>
+	<%end%> 
+</ul>
+<%end%>	
+
+
+<br><br>
+
+
+
+
+
+
+

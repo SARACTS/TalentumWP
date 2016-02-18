@@ -1,0 +1,23 @@
+<table>
+	<tr>
+		<th>Talla</th>
+		<th>Color</th>
+		<th>Tipo</th>
+		<th>Borrar</th>
+		<th>Modificar</th>
+	</tr>
+	
+	<%for zapato in @zapatos %>
+	
+	<tr>
+		<td><%=zapato.talla%></td>
+		<td><%=zapato.color%></td>
+		<td><%=zapato.tipo%></td>
+		<td><a href="/zapato/borrar?id=<%=zapato.id%>">Borrar</a></td>
+		<td><a href="/zapato/modificar_vista?id=<%=zapato.id%>">Modificar</a></td>
+			
+	</tr>	
+	
+	<%end%>
+</table>
+<a href="/zapato/alta_vista">Alta</a>

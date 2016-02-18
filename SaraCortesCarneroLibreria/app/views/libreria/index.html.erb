@@ -1,0 +1,170 @@
+<h1>Librería Sara Cortés Carnero</h1>
+<br><br>
+
+
+		<h2 style = "text-align: center">Introduzca los datos del libro a dar de alta</h2>
+		<%= form_tag({controller:"libreria",action:"alta"},method:"get") do%>
+			<%= label_tag(:genero, "Género:")%>
+			<%= text_field_tag(:genero)%><br/>
+			<%= label_tag(:titulo, "Título:")%>
+			<%= text_field_tag(:titulo)%><br/>
+			<%= label_tag(:autor, "Autor:")%>
+			<%= text_field_tag(:autor)%><br/>
+			
+			<%= submit_tag("Crear")%>	
+			
+		<%end%>
+
+		
+		
+		<table>
+			<h2><tr>
+					
+				<th>Género</th>
+				<th>Titulo</th>
+				<th>Autor</th>
+				<th>Borrar</th>
+				<th>Modificar</th>
+			</tr></h2>
+		
+			<tbody>
+				
+				
+				<%
+			libros = Libreria.all
+			
+			for libro in libros 
+				
+			%>
+				
+				
+				
+		
+				<tr>
+					
+					<td><%=libro.genero%></td>
+					<td><%=libro.titulo%></td>
+					<td><%=libro.autor%></td>
+					<td><a href="/libreria/baja?id=<%=libro.id%>">Borrar</a></td>
+					<td><a href="/libreria/update_vista?id=<%=libro.id%>">Modificar</a></td>
+					
+		
+					
+					</tr>
+				
+					<% end %>
+				</tbody>
+			</table>
+			
+			<br/><br />
+
+
+
+
+
+
+					<%if @libro  != nil  && @libro.errors.any? %>
+					<ul>
+						<%@libro.errors.full_messages.each do |mensaje_error|%>
+							<li><%=mensaje_error%></li>
+						<%end%> 
+					</ul>
+					<%end%>	
+
+<h1>¿Desea hacer alguna busqueda?</h1>
+
+
+
+
+
+
+
+				<h3 style = "text-align: center">Buscamos por GÉNERO </h3>
+				
+				
+				<form action="/libreria/busqueda_genero">
+					Género: <input type="text" name="genero"/><br>
+					<input type="submit" value="Buscar"/>
+				</form>
+				
+				<% if @librosEncontrados != nil %>
+					<table >
+						<tr>
+							<th>Género</th>
+							<th>Título</th>
+							<th>Autor</th>
+						</tr>
+						<% for libro in  @librosEncontrados %>
+						<tr>
+							<td><%= libro.genero %></td>
+							<td><%= libro.titulo %></td>
+							<td><%= libro.autor %></td>
+						</tr>
+						<% end %>
+					</table>
+				<% end %>
+				
+				
+				<h3 style = "text-align: center">Buscamos por TÍTULO </h3>
+				
+				
+				<form action="/libreria/busqueda_titulo">
+					Título: <input type="text" name="titulo"/><br>
+					<input type="submit" value="Buscar"/>
+				</form>
+				
+				<% if @librosEncontrados != nil %>
+					<table >
+						<tr>
+							<th>Género</th>
+							<th>Título</th>
+							<th>Autor</th>
+						</tr>
+						<% for libro in  @librosEncontrados %>
+						<tr>
+							<td><%= libro.genero %></td>
+							<td><%= libro.titulo %></td>
+							<td><%= libro.autor %></td>
+						</tr>
+						<% end %>
+					</table>
+				<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3 style = "text-align: center" >Buscamos por AUTOR</h3>
+
+
+<form action="/libreria/busqueda_autor">
+	Autor: <input type="text" name="autor"/><br>
+	<input type="submit" value="Buscar"/>
+</form>
+
+<% if @librosEncontrados != nil %>
+	<table >
+		<tr>
+			<th>Género</th>
+			<th>Título</th>
+			<th>Autor</th>
+		</tr>
+		<% for libro in @librosEncontrados %>
+		<tr>
+			<td><%= libro.genero %></td>
+			<td><%= libro.titulo %></td>
+			<td><%= libro.autor %></td>
+		</tr>
+		<% end %>
+	</table>
+<% end %>
+
+
